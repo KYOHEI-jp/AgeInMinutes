@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
         //SELECT DATEのボタンを押すとこのToastがよばれる
         btnDatePicker.setOnClickListener { view ->
             clickDatePicker(view)
-            Toast.makeText(this, "Button works", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -32,7 +31,15 @@ class MainActivity : AppCompatActivity() {
 
         DatePickerDialog(this,
             DatePickerDialog.OnDateSetListener {
-                view, year, month, dayOfMonth ->
+                view, selectedYear, selectedMonth, selectedDayOfMonth ->
+                Toast.makeText(this, "The chosen year is $selectedYear + the month is $selectedMonth and the day is $selectedDayOfMonth",
+                    Toast.LENGTH_LONG).show()
+                val selectedDate = "$selectedDayOfMonth/${selectedMonth+1}/$selectedYear"
+
+                tvSelectedDate.setText(selectedDate)
+
+
+
 
             }
             ,year
