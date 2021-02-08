@@ -18,4 +18,25 @@
         android:textSize="25sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:padding="10dp"
+        android:text="AGE"
+        android:textColor="@color/ageTextColor"
+        android:background="@color/ageTextbackgroundColor"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="IN MINUTES"
+        android:textColor="@color/textColor"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+
 </LinearLayout>
