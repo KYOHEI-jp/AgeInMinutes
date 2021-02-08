@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -34,12 +35,23 @@ class MainActivity : AppCompatActivity() {
                 view, selectedYear, selectedMonth, selectedDayOfMonth ->
                 Toast.makeText(this, "The chosen year is $selectedYear + the month is $selectedMonth and the day is $selectedDayOfMonth",
                     Toast.LENGTH_LONG).show()
-                val selectedDate = "$selectedDayOfMonth/${selectedMonth+1}/$selectedYear"
+                val selectedDate = "$selectedYear/${selectedMonth+1}/$selectedDayOfMonth"
 
                 tvSelectedDate.setText(selectedDate)
 
+                val sdf = SimpleDateFormat("yyyy/MM/dd", Locale.JAPAN)
 
+                val theDate = sdf.parse(selectedDate)
 
+                val selectedDateInMinutes = theDate!!.time / 60000
+
+                val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
+
+                val currentDateToMinutes = currentDate!!.time / 60000
+                
+                val differenceInMinutes = currentDateToMinutes - selectedDateInMinutes
+
+                tvSelectedDateInMinutes.setText(differenceInMinutes.toString())
 
             }
             ,year
